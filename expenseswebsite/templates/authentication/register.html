@@ -1,4 +1,4 @@
-{% extends 'base_auth.html' %} {% block content %}
+{% extends 'base_auth.html' %} {% load static %} {% block content %}
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
@@ -17,6 +17,9 @@
               class="form-control form-control-sm"
             />
           </div>
+
+          <div class="invalid-feedback" style="display: none"></div>
+          <p class="text-sm text-success usernameSuccessOutput"></p>
           <div class="form-group py-2">
             <input
               type="email"
@@ -26,6 +29,11 @@
               class="form-control form-control-sm"
             />
           </div>
+          <div
+            class="emailFeedBackArea invalid-feedback"
+            style="display: none"
+          ></div>
+          <p class="text-sm text-success emailSuccessOutput"></p>
           <div class="form-group py-2">
             <input
               type="password"
@@ -34,13 +42,10 @@
               placeholder="password"
               class="form-control form-control-sm"
             />
-            <small class="float-right py-3">SHOW</small>
+            <small class="btn btn-sm float-right py-2 showPasswordToggle"
+              >SHOW</small
+            >
           </div>
-          <!-- <input
-            type="submit"
-            value="Register"
-            class="btn btn-block btn-primary"
-          /> -->
           <div class="d-grid gap-2">
             <input class="btn btn-primary" type="submit" value="Register" />
           </div>
@@ -50,4 +55,5 @@
   </div>
   <div class="col-md-4"></div>
 </div>
+<script src="{% static 'js/register.js' %}"></script>
 {% endblock %}
