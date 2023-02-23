@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
+from django.contrib import messages
 
 import django_on_heroku
 
@@ -131,3 +132,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # django_on_heroku.settings(locals())
+
+
+MESSAGE_TAGS = {messages.ERROR: "danger"}
+
+# EMAIL STUFF
+EMAIL_HOST = os.environ.get("EMAIL_HOST")
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
